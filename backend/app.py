@@ -605,7 +605,7 @@ def get_firebase_sample(node_path: str, count: int = 5) -> List[Dict[str, Any]]:
             {"id": "sample", "note": "This is example data due to an error"}
         ]
 
-api_key = "AIzaSyBb4lNTOjji1fUJhNvkf4CpKo_yQDrTn0M" 
+api_key = "GOOGLE_GEMINI_API_KEY"  # Placeholder for the API key
 # API key for Google Gemini APII 
 # This value must be replaced with actual credential before deployment
 
