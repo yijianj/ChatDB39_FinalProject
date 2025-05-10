@@ -6,8 +6,8 @@ from tqdm import tqdm
 CSV_FILE_PATH = r"../sample_data/airbnb_listing_500.csv"
 
 # These values must be replaced with actual credentials before deployment
-FIREBASE_CRED = "credential/dsci551proj-437a5-firebase-adminsdk-fbsvc-3599be0830.json" # replace with your firebase actual credential file path
-DATABASE_URL = "https://dsci551proj-437a5-default-rtdb.firebaseio.com" # replace with your actual firebase database url
+FIREBASE_CRED = "credential/<key.json file>" # replace with your firebase actual credential file path
+DATABASE_URL = "FIREBASE_URL_HOLDER" # replace with your actual firebase database url
 
 df = pd.read_csv(CSV_FILE_PATH)
 
