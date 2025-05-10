@@ -49,7 +49,7 @@ MongoDB:
     Prompt: Show 3 listings sorted by host response rate in descending order.
     注意事项：因为存在None的数据，需要特别提醒降序（Descending）
 5. $limit / $Skip
-    Prompt: Skip the first 10 listings and show the next 5.
+    Prompt: Skip the first 10 listings and show the next 5 in the listings table.
 6. $project
     Prompt: Show only the listing ID, host ID and neighborhood for 3 listings.
 7. joins using $lookup
@@ -75,7 +75,7 @@ MySQL:
             1. id 3004, name 'BeachHouse', property_type 'House', room_type 'Entire home/apt', accommodates 8
             2. id 3005, name 'CityLoft', property_type 'Apartment', room_type 'Private room', accommodates 2
             3. id 3006, name 'SuburbanRetreat', property_type 'House', room_type 'Entire home/apt', accommodates 6
-    Checking Query: Show everything about listings with ids 3004, 3005, and 3006 in the listing table.
+    Checking Query: Show everything about listings with ids 3003, 3004, 3005, and 3006 in the listing table.
 
 3 Modification (Support Many)
     Prompt: Update the listing with id 3003 to set its accommodates to 6.
@@ -85,7 +85,7 @@ MySQL:
     Checking Query: Show the room_type information about listings with id 3004, 3005, 3006
     
 4 Deletion (Support Many)
-    Prompt: Delete listing with id 3004, 3005, 3006
+    Prompt: Delete listing with id 3003, 3004, 3005, 3006
     Checking Query: Show everything about listing with id 3003 in the listing table.
 
 MongoDB:

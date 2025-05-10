@@ -4,15 +4,16 @@ import numpy as np
 
 CSV_FILE_PATH = r"../sample_data/airbnb_listing_500.csv"
 
+
+# MySQL server address, port, user, password, and database name, 
+# replace with your actual MySQL configuration
+# These values must be replaced with actual credentials before deployment
 MYSQL_CONFIG = dict(
     host="localhost",
     port=3306,
     user="root",
     password="Dsci-551",
     database="airbnb_db") 
-# MySQL server address, port, user, password, and database name, 
-# replace with your actual MySQL configuration
-# These values must be replaced with actual credentials before deployment
 
 df = pd.read_csv(CSV_FILE_PATH, dtype=str)
 

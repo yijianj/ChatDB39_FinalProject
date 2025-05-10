@@ -7,15 +7,15 @@ import os
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 CREDENTIAL_PATH = os.path.join(os.path.dirname(os.path.dirname(CURRENT_DIR)), 
-                               "Firebase credential file path") # change to your actual Firebase credential file path
+                               "credential\dsci551proj-437a5-firebase-adminsdk-fbsvc-3599be0830.json") # change to your actual Firebase credential file path
 
-FIREBASE_CONFIG = {
-    "credential_path": CREDENTIAL_PATH,
-    "database_url": "database_url" 
-} 
 # Firebase credential file path and database URL
 # change to your actual Firebase credential file path and database URL
 # These values must be replaced with actual credentials before deployment
+FIREBASE_CONFIG = {
+    "credential_path": CREDENTIAL_PATH,
+    "database_url": "https://dsci551proj-437a5-default-rtdb.firebaseio.com" 
+} 
 
 NODES = {
     "listings": "listings",

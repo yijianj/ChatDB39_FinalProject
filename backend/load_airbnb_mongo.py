@@ -3,9 +3,11 @@ import ast
 from pymongo import MongoClient
 
 CSV_FILE_PATH = r"../sample_data/airbnb_listing_500.csv"
+
+# These values must be replaced with actual credentials before deployment
 MONGO_URI = "mongodb://localhost:27017/" # MongoDB server address, replace with your actual MongoDB URI
 DB_NAME = "airbnb_db" # MongoDB database name, replace with your actual database name
-# These values must be replaced with actual credentials before deployment
+
 
 df = pd.read_csv(CSV_FILE_PATH) 
 

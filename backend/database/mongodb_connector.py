@@ -7,13 +7,13 @@ from typing import List, Dict, Any, Optional, Union
 from pymongo.collection import Collection
 from pymongo.database import Database
 
+# replace with actual MongoDB Server config values on your system if needed
+# These values must be replaced with actual credentials before deployment
 MONGO_CONFIG = {
     "host": "localhost",
     "port": 27017,
     "database": "airbnb_db"
 }
-# replace with actual config values on your system if needed
-# These values must be replaced with actual credentials before deployment
 
 COLLECTIONS = {
     "listings_meta": "listings_meta",

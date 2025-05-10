@@ -2,6 +2,9 @@
 
 This project implements a natural language interface to query and manipulate Airbnb data across multiple databases (MySQL, MongoDB, and Firebase). The application allows users to query data using natural language, explore database schemas, and modify data through a unified interface.
 
+## Note on Firebase Integration
+- Firebase Realtime Database has been excluded from the final implementation due to an update in the project requirements specifying the use of only two databases. While the Firebase query and modification functionalities remains in the backend, they were not fully tested nor verified. Usability is therefore uncertain.
+
 ## Prerequisites
 
 Before running this project, ensure the following are installed/initiated:
@@ -16,10 +19,10 @@ Before running this project, ensure the following are installed/initiated:
 ### API Keys Required
 
 1. **Firebase Admin SDK Private Key**
-   - Save the JSON key file in the project root directory
+   - Save the JSON key file to the backend/credential folder, or update the path in firebase_connector.py if you use a different location.
 
 2. **Google Gemini API Key**
-   - replace the API key in the backend/app.py file (line 608)
+   - replace the API key in the backend/app.py file where the Gemini API client is initialized (search for "api_key")
 
 ## Installation
 
@@ -77,13 +80,13 @@ npm install
 cd backend
 
 # Create and load MySQL data
-python backend/load_airbnb_mysql.py
+python load_airbnb_mysql.py
 
 # Create and load MongoDB data
-python backend/load_airbnb_mongo.py
+python load_airbnb_mongo.py
 
-# Load Firebase data
-python backend/load_airbnb_firebase.py
+# upload Firebase data
+python load_airbnb_firebase.py
 ```
 
 ## Running the Application
@@ -120,6 +123,7 @@ npm start
          - Prompt: Show me the schema of the Hosts/listings/reviews table
       3. Retrieve sample rows.
          - Prompt: Show me 5 sample data from the Hosts/listings/reviews table
+
    - MongoDB:
       1. what collections exist?
          - Prompt: What collections are in the database?
@@ -127,6 +131,7 @@ npm start
          - Prompt: What attributes are in listings_meta/media/amenities table?
       3. Retrieve sample rows.
          - Prompt: Show me 5 sample data from the listings_meta/media/amenities table.
+
 2. Database Query
    - MySQL：
       1. SELECT ... FROM
@@ -163,11 +168,13 @@ npm start
          - Prompt: Show 3 listings with their amenities details.
       8. Aggregate Complex
          - Prompt: Find the average host response rate for each neighborhood, only include neighborhoods with at least 5 listings, sort by average rate descending.
+
 3. Modification:
    - MySQL:
       1. Insertion
          - Prompt: Insert a new listing with id 3003, name 'OneLineTest', property_type 'Condo', room_type 'Entire home/apt', accommodates 5 person;
          - Checking Query: Show everything about listing with id 3003 in the listing table.
+      
       2. Insertion (Many)
          - Prompt: Insert these listings into MySQL: 1. "id 3004, name 'BeachHouse', property_type 'House', room_type 'Entire home/apt', accommodates 8"; 2. "id 3005, name 'CityLoft', property_type 'Apartment', room_type 'Private room', accommodates 2"; 3. "id 3006, name 'SuburbanRetreat', property_type 'House', room_type 'Entire home/apt', accommodates 6"
          - Checking Query: Show everything about listings with ids 3004, 3005, and 3006 in the listing table.
@@ -187,9 +194,11 @@ npm start
       1. Insertion (one)
          - Prompt: Insert a new listing into MongoDB with metaid '123', scrape_id 'abc', last_scraped '2025-04-18', source 'manual', host_id 456, host_response_time '1 day', host_response_rate 0.85, host_acceptance_rate 0.9, instant_bookable true, license 'XYZ123', neighbourhood_cleansed 'Downtown', neighbourhood_group_cleansed 'Central', market 'LA', smart_location 'Los Angeles', country_code 'US', country 'USA
          - Checking Query: Show listing with id 123.
+      
       2. Insertion (many)
          - Prompt: Insert these listings into MongoDB: 1. "metaid '124', scrape_id 'def', last_scraped '2025-04-19', source 'manual', host_id 457, host_response_time '2 days', host_response_rate 0.75, host_acceptance_rate 0.8, instant_bookable false, license 'ABC789', neighbourhood_cleansed 'Midtown', neighbourhood_group_cleansed 'Central', market 'SF', smart_location 'San Francisco', country_code 'US', country 'USA'"; 2. "metaid '125', scrape_id 'ghi', last_scraped '2025-04-20', source 'manual', host_id 458, host_response_time '1 hour', host_response_rate 0.95, host_acceptance_rate 0.85, instant_bookable true, license 'DEF456', neighbourhood_cleansed 'SOMA', neighbourhood_group_cleansed 'Central', market 'SF', smart_location 'San Francisco', country_code 'US', country 'USA'" 3. "metaid '126', scrape_id 'jkl', last_scraped '2025-04-21', source 'manual', host_id 459, host_response_time '3 days', host_response_rate 0.65, host_acceptance_rate 0.7, instant_bookable false, license 'GHI123', neighbourhood_cleansed 'Mission', neighbourhood_group_cleansed 'Central', market 'SF', smart_location 'San Francisco', country_code 'US', country 'USA'"
          - Checking Query: Show listings with ids 124, 125, and 126.
+      
       3. Update (one)
          - Prompt: Update the listing in MongoDB with metaid '123' to set smart_location to 'San Francisco'.
          - Checking Query: Show listing with id 123.

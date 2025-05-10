@@ -3,6 +3,9 @@ import re
 from fastapi import HTTPException
 from typing import List, Dict, Any, Optional
 
+
+# config for MySQL connection
+# These values must be replaced with actual credentials before deployment
 MYSQL_CONFIG = {
     'host': 'localhost',
     'port': 3306,
@@ -11,8 +14,6 @@ MYSQL_CONFIG = {
     'database': 'airbnb_db',
     'cursorclass': pymysql.cursors.DictCursor  # Returns results as dictionaries instead of tuples
 }
-# config for MySQL connection
-# These values must be replaced with actual credentials before deployment
 
 def get_connection():
 
